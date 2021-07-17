@@ -61,3 +61,28 @@ where last_name = 'Cole' or last_name = 'Bush';
 
 select * from teachers
 where school = 'F.D. Roosevelt HS' and (salary < 38000 or salary > 40000);
+
+--- Putting it All together --- 
+
+select first_name, last_name, school, hire_date, salary
+from teachers
+where school like '%Roos%'
+order by hire_date desc;
+
+
+--- Exercise ---
+
+select first_name, last_name, school 
+from teachers
+order by school asc, last_name asc;
+
+select first_name, salary
+from teachers 
+where first_name Like '%S%' and salary > 40000;
+
+select first_name, last_name, hire_date, salary
+from teachers
+where hire_date > '2010-01-01'
+order by salary desc;
+
+
