@@ -102,3 +102,13 @@ CREATE TABLE us_counties_2010 (
     h0010002 integer,   -- Occupied
     h0010003 integer    -- Vacant
 );
+
+
+create table supervisor_salaries (
+    town varchar(30),
+    county varchar(30),
+    supervisor varchar(30),
+    start_date date,
+    salary money,
+    benefits money
+);
