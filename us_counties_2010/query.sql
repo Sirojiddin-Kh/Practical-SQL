@@ -9,11 +9,11 @@ from us_counties_2010
 order by internal_point_lon DESC
 limit 5;
 
+--- Importing from existing source--- 
 
 COPY us_counties_2010
 FROM '/home/asus/Desktop/us_counties_2010.csv'
 WITH (FORMAT CSV, HEADER);
-
 
 CREATE TEMPORARY TABLE supervisor_salaries_temp (LIKE supervisor_salaries);
 COPY supervisor_salaries_temp (town, supervisor, salary)
@@ -23,3 +23,10 @@ INSERT INTO supervisor_salaries (town, county, supervisor, salary)
 SELECT town, 'Some County', supervisor, salary
 FROM supervisor_salaries_temp;
 DROP TABLE supervisor_salaries_temp;
+
+
+--- Exporting datas to files ---
+
+COPY us_counties_2010
+To '/home/asus/Desktop/us_counties_2010.txt'
+With (Format CSV, HEADER, DELIMITER '|');
