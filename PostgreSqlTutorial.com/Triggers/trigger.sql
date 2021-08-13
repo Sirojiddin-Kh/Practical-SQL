@@ -18,7 +18,7 @@ create or replace function log_last_name_change() returns trigger language plpgs
 		begin
 
 			if new.last_name <> old.last_name then
-				insert into employee_audid(employee_audit_id, last_name, changed_on)
+				insert into employee_audid(employee_id, last_name, changed_on)
 					values
 						(old.employee_id, old.last_name, now());
 			end if;
