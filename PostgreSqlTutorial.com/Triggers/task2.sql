@@ -10,7 +10,7 @@ create table social_password (
 create or replace function encrypting() returns trigger language plpgsql as 
 	$$
 		begin
-			new.password = 'Sirojiddin'
+			new.password = 'Sirojiddin';
 
 			return new;
 		end;
